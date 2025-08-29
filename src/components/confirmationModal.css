@@ -1,0 +1,136 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1, 1, 1, 0.515);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-size: 40px;
+  color: rgba(122, 201, 217, 0.441);
+}
+.modal-overlay-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  color: #3aa2b5; /* можно изменить под тему */
+  pointer-events: none; /* чтобы не мешал клику по overlay */
+  text-align: center;
+}
+
+.modal {
+  .modal-title {
+    transition: 0.3s all ease-in-out;
+    margin-bottom: 0;
+    font-size: 25px;
+    color: rgb(246, 246, 246);
+  }
+
+  justify-content:center;
+  align-items: center;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(23, 23, 26);
+}
+
+.modal:has(.confirm:hover) .modal-title {
+
+  color: rgba(255, 0, 0, 0.608);
+}
+.modal:has(.cancel:hover) .modal-title {
+
+  color: rgb(117, 117, 117);
+}
+
+.modal-buttons {
+
+  .modal-button {
+    transition: 0.6s all ease-in-out;
+    background-color: rgb(95, 95, 95);
+  }
+
+  padding: 0px 20px;
+
+  .confirm {
+
+
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+
+  .cancel {
+    margin-left: 10px;
+
+
+    &:hover {
+
+      background-color: rgb(45, 45, 45);
+      color: white;
+    }
+  }
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #333;
+}
+
+.modal-message {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.modal-button--cancel {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-button--cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.modal-button--confirm {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.modal-button--confirm:hover {
+  background-color: #d9363e;
+}

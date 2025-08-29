@@ -1,0 +1,26 @@
+.chat-stream__title {
+    position: relative;
+    display: block;
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.chat-stream__red {
+    color: red;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.chat-stream__white {
+    color: white;
+}
+
+.chat-stream {
+    height: 100vh;
+}

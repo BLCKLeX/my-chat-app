@@ -1,0 +1,38 @@
+@import './components/Layout.css';
+@import './pages/chat.css';
+@import './pages/home.css';
+@import './pages/notfound.css';
+
+
+
+
+
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* стили для фона */
+
+body{
+  background-color: rgb(71, 73, 77);
+}
+
+
+
+
+
+
+
+
