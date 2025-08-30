@@ -10,10 +10,10 @@ const loadState = () => {
 }
 
 const initialState = loadState() || {
-  users: {},          // все юзеры
+  users: {}, // все юзеры
   activeUserId: null, // текущий вошедший
   activeChatId: null, // выбранный чат
-  chats: {},          // чаты по пользователям
+  chats: {}, // чаты по пользователям
 }
 
 const chatSlice = createSlice({
@@ -23,28 +23,28 @@ const chatSlice = createSlice({
     // ✅ регистрация / логин пользователя
     addUser: {
       reducer(state, action) {
-        const { id, name, nickname } = action.payload
-    
+        const { id, name } = action.payload
+
         // приведение к нижнему регистру (если есть nickname)
-        const normalizedNickname = nickname ? nickname.toLowerCase() : null
-    
+
+        const normalizeName = name.toLowerCase()
         // проверка, существует ли уже юзер с таким ником
         const existUser = Object.values(state.users).find(
-          (user) => user.nickname?.toLowerCase() === normalizedNickname
+          (user) => user.name.toLowerCase() === normalizeName
         )
-    
+     
         if (!existUser) {
-          state.users[id] = { id, name, nickname }
+          state.users[id] = { id, name }
           state.chats[id] = {} // чаты для юзера
           state.activeUserId = id
           localStorage.setItem("chatState", JSON.stringify(state))
-        } else {
+        }else{
           state.activeUserId = existUser.id
         }
       },
-      prepare(name, nickname) {
+      prepare(name) {
         const id = `user-${nanoid(6)}`
-        return { payload: { id, name, nickname } }
+        return { payload: { id, name } }
       },
     },
     // ✅ создание чата у активного юзера
@@ -64,6 +64,7 @@ const chatSlice = createSlice({
             title,
             messages: [],
           }
+          state.activeChatId = chatId
         }
 
         localStorage.setItem("chatState", JSON.stringify(state))

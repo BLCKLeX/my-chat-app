@@ -46,8 +46,12 @@ const Chat = () => {
   const [newChatTitle, setNewChatTitle] = useState("")
   const [modal, setModal] = useState({ open: false, type: null, chatId: null })
 
-  const [showChat, setShowChat] = useState(() => JSON.parse(localStorage.getItem("showChat")) ?? true)
-  const [showVideo, setShowVideo] = useState(() => JSON.parse(localStorage.getItem("showVideo")) ?? true)
+  const [showChat, setShowChat] = useState(
+    () => JSON.parse(localStorage.getItem("showChat")) ?? true
+  )
+  const [showVideo, setShowVideo] = useState(
+    () => JSON.parse(localStorage.getItem("showVideo")) ?? true
+  )
 
   // если нет юзера → редирект на login
   useEffect(() => {
@@ -88,10 +92,15 @@ const Chat = () => {
 
   // удалить сообщение
   const handleDeleteMessage = (messageId) => {
+    
     if (!activeUserId || !activeChatId) return
+
     const msg = messages.find((message) => message.id === messageId)
-    if (msg?.files) cleanupFiles(msg.files)
-    dispatch(deleteMessage({ chatId: activeChatId, messageId }))
+
+    if (msg?.files) {
+      cleanupFiles(msg.files)
+      dispatch(deleteMessage({ chatId: activeChatId, messageId }))
+    }
   }
 
   // модалка на удаление/очистку
