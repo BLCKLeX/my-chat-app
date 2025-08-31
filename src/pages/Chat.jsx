@@ -160,6 +160,8 @@ const Chat = () => {
         onToggleChat={setShowChat}
         showVideo={showVideo}
         onToggleVideo={setShowVideo}
+        activeUserId={activeUserId}
+        users={users}
       />
 
       <div className="chat__layout">
