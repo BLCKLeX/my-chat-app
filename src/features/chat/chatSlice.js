@@ -25,8 +25,6 @@ const chatSlice = createSlice({
       reducer(state, action) {
         const { id, name } = action.payload
 
-        // приведение к нижнему регистру (если есть nickname)
-
         const normalizeName = name.toLowerCase()
         // проверка, существует ли уже юзер с таким ником
         const existUser = Object.values(state.users).find(
@@ -103,7 +101,17 @@ const chatSlice = createSlice({
 
       localStorage.setItem("chatState", JSON.stringify(state))
     },
+    setActiveUser(state, action) {
+      
+      const userId = action.payload
+      const lastChat = Object.values(state.chats[userId] || {}).at(-1)
+      console.log(Object.keys(lastChat), Object.values(lastChat))
+        state.activeUserId = userId
+        state.activeChatId = lastChat.chatId || null
 
+        localStorage.setItem("chatState", JSON.stringify(state))
+      
+    },
     //  отправка сообщения в активный чат
     addMessageToActiveChat: {
       reducer(state, action) {
@@ -186,7 +194,8 @@ export const {
   deleteChat,
   deleteMessage,
   clearChatMessages,
-  setUserAvatar
+  setUserAvatar,
+  setActiveUser,
 } = chatSlice.actions
 
 export default chatSlice.reducer

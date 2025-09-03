@@ -440,3 +440,41 @@ max-width: 400px;
 -webkit-media-controls-enclosure{
   background-color: #0f0f0f;
 }
+.chat__user-info{
+  display: flex;
+  align-items: center;
+  
+
+}
+.chat__user-name{
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #1a1a1a; /* близкий к фону, но чуть светлее */
+
+  text-shadow:
+    1px 1px 5px rgb(0, 0, 0),   /* мягкая тень вниз-вправо */
+    -1px -1px 3px rgba(82, 81, 81, 0.197); /* мягкий светлый блик */
+}
+.chat__avatar{
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(56, 56, 56, 0.551)
+}
+.chat__avatar-plus{
+  cursor: pointer;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #1a1a1a; /* близкий к фону, но чуть светлее */
+
+  text-shadow:
+    1px 1px 5px  rgb(0, 0, 0),   /* мягкая тень вниз-вправо */
+    -1px -1px 3px rgba(82, 81, 81, 0.197); /* мягкий светлый блик */
+}
+.chat__upload-label{
+  margin-right: 10px;
+}
