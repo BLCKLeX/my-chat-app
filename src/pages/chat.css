@@ -447,6 +447,7 @@ max-width: 400px;
 
 }
 .chat__user-name{
+  padding-right: 30px;
   font-size: 48px;
   font-weight: bold;
   font-family: 'Arial', sans-serif;

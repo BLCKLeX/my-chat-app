@@ -32,9 +32,10 @@ const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUs
           />
         </label>
         <span className="chat__user-name">{user?.name || "Неизвестный"}</span>
+           <UserSwitcher/>
       </div>
     <div>
-      <UserSwitcher/>
+   
     </div>
       {/* Правая часть: кнопки */}
       <div className="chat__tabs-right">
