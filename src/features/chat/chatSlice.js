@@ -199,3 +199,17 @@ export const {
 } = chatSlice.actions
 
 export default chatSlice.reducer
+
+export const  selectActiveUser = (state) => {
+  const {activeUserId, users} = state.chat
+  return activeUserId ? users[activeUserId] : null
+}
+export const seclectActiveChat = (state) => {
+  const {activeChatId, chats} = state.chat
+  return activeChatId ? chats[activeChatId] : null
+}
+
+export const selecUserChat = (state) => {
+  const {activeUserId, activeChatId,chats} = state.chat
+  return activeChatId && activeUserId ? chats[activeUserId][activeChatId] : null
+}
