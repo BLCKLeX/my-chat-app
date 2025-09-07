@@ -20,7 +20,7 @@ const MessageInput = ({ handleSubmit, setInputValue, inputValue, handleFileSend 
     setAttachedFiles([])
   }
   return (
-    <div>
+    <div className="chat-form__wrapper">
       {attachedFiles.length > 0 && (
         <div className="chat__attached-files">
           {attachedFiles.map((file, index) => (

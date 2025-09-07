@@ -39,7 +39,7 @@
 max-width: 400px;
 
   background-color: #111;
-  border-right: 1px solid #2674c7;
+  border-right: 1px solid#4dabf799;
   overflow-y: auto;
   padding: 1rem;
 }
@@ -51,19 +51,19 @@ max-width: 400px;
   transition: 0.3s all ease-in-out;
 
   >.active {
-    background-color: rgb(24, 24, 26);
-    transition: 0.3s all ease-in-out;
-    box-shadow: inset 5px 4px 3px rgba(0, 0, 0, 0.769);
+   
+    
+    box-shadow:inset 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
 
     .chat__list-title {
-      color: rgb(156, 155, 155);
+      color:#4dabf7;
     }
   }
 }
 
 .chat__list-title {
   padding-left: 5px;
-  color: #2666bf;
+  color: #4a4b4e;
   font-weight: bold;
   text-transform: lowercase;
 
@@ -79,7 +79,7 @@ max-width: 400px;
   transition: 0.3s all ease-in-out;
 
 
-  background-color: #1a1a1a;
+  box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
   margin-bottom: 0.5rem;
   padding: 0px 10px;
   border-radius: 6px;
@@ -88,11 +88,12 @@ max-width: 400px;
 
 }
 
-.chat__list li:hover {
+/* .chat__list li:hover {
   background-color: #2a2a2a;
-}
+} */
 
 .chat__list-content {
+  margin: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,7 +106,7 @@ max-width: 400px;
 
 .chat__delete-btn {
   cursor: pointer;
-  color: red;
+  color: rgb(0, 0, 0);
   background-color: transparent;
   font-size: 25px;
   line-height: 50px;
@@ -123,7 +124,8 @@ max-width: 400px;
 }
 
 .chat__messages-container {
-  padding: 15px 0px 10px 20px;
+
+  /* padding: 15px 0px 10px 20px; */
   flex: 1;
   overflow-y: auto;
 }
@@ -151,20 +153,20 @@ max-width: 400px;
 }
 .chat__message--own {
   align-self: flex-end;
-  background-color: #262626;
-  border: 1px solid #444;
+  background: #1a1a1a;
+  box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
 }
 
 .chat__delete-msg-btn {
   padding-top: 10px;
   border-top: 1px solid #3d3d3d;
   background-color: transparent;
-  color: #2666bf;
+  color: #4dabf7;;
  
   cursor: pointer;
 
   &:hover {
-    color: #d12b0a;
+    color: #c6c6c6;
     ;
   }
 }
@@ -180,13 +182,13 @@ max-width: 400px;
   font-weight: bold;
   margin-bottom: 0.3rem;
   font-size: 0.95rem;
-  color: #87888f;
+  color: #60b58c;
 }
 
 .chat__message-text {
   white-space: pre-wrap;
   line-height: 1.4;
-  color: #ececec;
+  color: #c7c6c6;
   padding: 2px ;
   font-size: 18px;
 }
@@ -222,25 +224,32 @@ max-width: 400px;
 }
 
 /* ---------- FORM (внизу) ---------- */
+.chat-form__wrapper{
+  border-top: solid 1px #333;
+  margin-top: 10px;
+}
 .chat__form {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 800px;
   margin-top: 10px;
   display: flex;
   gap: 0.5rem;
   padding: 1rem;
-  border-top: 1px solid #2c2c2c;
-  background-color: #121212;
+ 
 }
 
 .chat__textarea,
 .chat__form-input {
   flex: 1;
   resize: none;
-  padding: 0.6rem;
+  padding: 0.8rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #333;
-  background-color: #1e1e1e;
-  color: #fff;
+ font-size: 16px;
+  background: #1a1a1a;
+  box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
+  color: #bfbebe;
   font-family: inherit;
   outline: none;
 }
@@ -252,8 +261,8 @@ max-width: 400px;
 
 .chat__form-input:focus,
 .chat__textarea:focus {
-  outline: #ba74ff;
-  border: 1px solid #ba74ff;
+
+  box-shadow:inset 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
   ;
 }
 
@@ -288,8 +297,9 @@ max-width: 400px;
 .chat__btn-video,
 .chat__add-btn,
 .chat__send-btn {
-  background-color: #663ad4;
-  color: #fff;
+  background: #1a1a1a;
+  box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
+  color: #4dabf7;
   font-weight: bold;
   border: none;
   padding: 1rem 1rem;
@@ -319,11 +329,11 @@ max-width: 400px;
   background-color: grey;
 }
 
-.chat__add-btn:hover,
-.chat__btn-chat:hover,
-.chat__btn-video:hover,
-.chat__send-btn:hover {
-  background-color: #5d2ae0;
+.chat__add-btn:active,
+.chat__btn-chat:active,
+.chat__btn-video:active,
+.chat__send-btn:active {
+  box-shadow:inset 4px 4px 8px #0000008b, -4px -4px 8px #1d1d1da5;
 }
 
 .chat__form-input {
@@ -331,9 +341,9 @@ max-width: 400px;
 }
 
 .chat__clear-btn {
-  color: white;
-  background-color: black;
-  border: none;
+  color: #7d7e80;
+  background: #1a1a1a;
+  box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
   font-weight: bold;
   padding: 1rem 1rem;
   border-radius: 8px;
@@ -478,4 +488,7 @@ max-width: 400px;
 }
 .chat__upload-label{
   margin-right: 10px;
+}
+.margin-right{
+  margin-right: 1rem;
 }

@@ -24,7 +24,7 @@ export default function ChatSidebar({
         />
         <button
           onClick={onAddChat}
-          disabled={!newChatTitle.trim()}
+         
           className="chat__add-btn"
         >
           + Создать

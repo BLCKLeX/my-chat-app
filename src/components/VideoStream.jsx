@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import "./video.css"
+
 const VideoStream = () => {
   const videoRef = useRef(null)
   const [isCameraOn, setIsCameraOn] = useState(false)

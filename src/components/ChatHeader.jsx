@@ -19,7 +19,7 @@ const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUs
     <div className="chat__header">
       {/* Левая часть: аватар + имя */}
       <div className="chat__user-info">
-        {user?.avatar && <img src={user.avatar} alt="avatar" className="chat__avatar" />}
+        {user.avatar && <img src={user.avatar} alt="avatar" className="chat__avatar" />}
 
         {/* Кнопка загрузки картинки */}
         <label className="chat__upload-label">
@@ -39,7 +39,7 @@ const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUs
     </div>
       {/* Правая часть: кнопки */}
       <div className="chat__tabs-right">
-        <button onClick={() => onToggleChat(!showChat)} className="chat__btn-chat">
+        <button onClick={() => onToggleChat(!showChat)} className="chat__btn-chat margin-right">
           {showChat ? "Скрыть чат" : "Показать чат"}
         </button>
         <button onClick={() => onToggleVideo(!showVideo)} className="chat__btn-video">
