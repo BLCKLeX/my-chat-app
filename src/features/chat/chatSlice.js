@@ -209,7 +209,11 @@ export const seclectActiveChat = (state) => {
   return activeChatId ? chats[activeChatId] : null
 }
 
-export const selecUserChat = (state) => {
+export const selectUserChat = (state) => {
   const {activeUserId, activeChatId,chats} = state.chat
   return activeChatId && activeUserId ? chats[activeUserId][activeChatId] : null
+}
+export const selectUserChats = (state) => {
+const {activeUserId, chats} = state.chat
+return activeUserId ? Object.values(chats[activeUserId]|| {} ): []
 }
