@@ -19,7 +19,7 @@ const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUs
     <div className="chat__header">
       {/* Левая часть: аватар + имя */}
       <div className="chat__user-info">
-        {user.avatar && <img src={user.avatar} alt="avatar" className="chat__avatar" />}
+         <img src={user.avatar} alt="choise photo"  className="chat__avatar" />
 
         {/* Кнопка загрузки картинки */}
         <label className="chat__upload-label">

@@ -102,15 +102,16 @@ const chatSlice = createSlice({
       localStorage.setItem("chatState", JSON.stringify(state))
     },
     setActiveUser(state, action) {
-      
       const userId = action.payload
       const lastChat = Object.values(state.chats[userId] || {}).at(-1)
-      console.log(Object.keys(lastChat), Object.values(lastChat))
+      if (lastChat) {
         state.activeUserId = userId
         state.activeChatId = lastChat.chatId || null
+      } else {
+        state.activeUserId = userId
+      }
 
-        localStorage.setItem("chatState", JSON.stringify(state))
-      
+      localStorage.setItem("chatState", JSON.stringify(state))
     },
     //  отправка сообщения в активный чат
     addMessageToActiveChat: {
@@ -200,20 +201,20 @@ export const {
 
 export default chatSlice.reducer
 
-export const  selectActiveUser = (state) => {
-  const {activeUserId, users} = state.chat
+export const selectActiveUser = (state) => {
+  const { activeUserId, users } = state.chat
   return activeUserId ? users[activeUserId] : null
 }
 export const seclectActiveChat = (state) => {
-  const {activeChatId, chats} = state.chat
+  const { activeChatId, chats } = state.chat
   return activeChatId ? chats[activeChatId] : null
 }
 
 export const selectUserChat = (state) => {
-  const {activeUserId, activeChatId,chats} = state.chat
+  const { activeUserId, activeChatId, chats } = state.chat
   return activeChatId && activeUserId ? chats[activeUserId][activeChatId] : null
 }
 export const selectUserChats = (state) => {
-const {activeUserId, chats} = state.chat
-return activeUserId ? Object.values(chats[activeUserId]|| {} ): []
+  const { activeUserId, chats } = state.chat
+  return activeUserId ? Object.values(chats[activeUserId] || {}) : []
 }
