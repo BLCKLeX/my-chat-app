@@ -25,11 +25,15 @@
 
 /* стили для фона */
 
-body{
-  background-color: rgb(71, 73, 77);
+body {
+  background: #141416; /* как на скрине — глубокий тёмный фон */
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
 }
-
-
 
 
 
