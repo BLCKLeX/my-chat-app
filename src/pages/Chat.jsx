@@ -46,12 +46,6 @@ const Chat = () => {
   const [newChatTitle, setNewChatTitle] = useState("")
   const [modal, setModal] = useState({ open: false, type: null, chatId: null })
 
-  const [showChat, setShowChat] = useState(
-    () => JSON.parse(localStorage.getItem("showChat")) ?? true
-  )
-  const [showVideo, setShowVideo] = useState(
-    () => JSON.parse(localStorage.getItem("showVideo")) ?? true
-  )
 
   // если нет юзера → редирект на login
   useEffect(() => {
@@ -147,19 +141,12 @@ const Chat = () => {
 
   const cancelModal = () => setModal({ open: false, type: null, chatId: null })
 
-  // сохраняем состояние вкладок
-  useEffect(() => {
-    localStorage.setItem("showChat", JSON.stringify(showChat))
-    localStorage.setItem("showVideo", JSON.stringify(showVideo))
-  }, [showChat, showVideo])
+ const activeSection = useSelector(state => state.chat.activeSection)
 
   return (
     <div className="chat">
       <ChatHeader
-        showChat={showChat}
-        onToggleChat={setShowChat}
-        showVideo={showVideo}
-        onToggleVideo={setShowVideo}
+        
         activeUserId={activeUserId}
         users={users}
       />
@@ -175,7 +162,7 @@ const Chat = () => {
           handleDeleteChat={handleDeleteChat}
         />
 
-        {showChat && (
+        {activeSection === 'chats' && (
           <ChatMessageContainer
             userName={userName}
             handleClearChat={handleClearChat}
@@ -185,10 +172,10 @@ const Chat = () => {
           />
         )}
 
-        {showVideo && <VideoPanel />}
+   
       </div>
 
-      {showChat && activeChatId && (
+      {activeSection === 'chats' && activeChatId && (
         <MessageInput
           handleSubmit={handleSubmit}
           setInputValue={setInputValue}

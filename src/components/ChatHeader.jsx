@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { setUserAvatar } from "../features/chat/chatSlice"
 import UserSwitcher from "./UserSwitcher"
 
-const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUserId, users }) => {
+const ChatHeader = ({  activeUserId, users }) => {
   const dispatch = useDispatch()
   const user = users[activeUserId]
   console.log(users)
@@ -38,14 +38,7 @@ const ChatHeader = ({ showChat, showVideo, onToggleChat, onToggleVideo, activeUs
    
     </div>
       {/* Правая часть: кнопки */}
-      <div className="chat__tabs-right">
-        <button onClick={() => onToggleChat(!showChat)} className="chat__btn-chat margin-right">
-          {showChat ? "Скрыть чат" : "Показать чат"}
-        </button>
-        <button onClick={() => onToggleVideo(!showVideo)} className="chat__btn-video">
-          {showVideo ? "Скрыть видео" : "Показать видео"}
-        </button>
-      </div>
+    
     </div>
   )
 }

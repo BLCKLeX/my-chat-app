@@ -14,6 +14,7 @@ const initialState = loadState() || {
   activeUserId: null, // текущий вошедший
   activeChatId: null, // выбранный чат
   chats: {}, // чаты по пользователям
+  aciveSection: "chats",
 }
 
 const chatSlice = createSlice({
@@ -184,6 +185,10 @@ const chatSlice = createSlice({
 
       localStorage.setItem("chatState", JSON.stringify(state))
     },
+    setActiveSection(state, action) {
+      state.activeSection = action.payload
+      localStorage.setItem("chatState", JSON.stringify(state))
+    },
   },
 })
 
@@ -197,6 +202,7 @@ export const {
   clearChatMessages,
   setUserAvatar,
   setActiveUser,
+  setActiveSection
 } = chatSlice.actions
 
 export default chatSlice.reducer

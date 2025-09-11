@@ -1,5 +1,8 @@
 import React from "react"
-import ChatListItem from "./ChatListItem"
+
+import SideBarNav from "./chatSideComponents/SideBarNav"
+import ChatList from "./chatSideComponents/ChatList"
+import { useSelector, useDispatch } from "react-redux"
 
 // Сайдбар со списком чатов + форма добавления
 export default function ChatSidebar({
@@ -11,37 +14,21 @@ export default function ChatSidebar({
   handleSelectChat,
   handleDeleteChat,
 }) {
+  const activeSection = useSelector((state) => state.chat.activeSection)
   return (
     <aside className="chat__sidebar">
-      <div className="chat__add-chat-form">
-        <input
-          className="chat__form-input"
-          type="text"
-          value={newChatTitle}
-          onChange={(e) => onChangeNewTitle(e.target.value)}
-          placeholder="Название нового чата"
-          onKeyDown={(e) => e.key === "Enter" && onAddChat()}
+      <SideBarNav />
+      {activeSection === "chats" && (
+        <ChatList
+          newChatTitle={newChatTitle}
+          onChangeNewTitle={onChangeNewTitle}
+          onAddChat={onAddChat}
+          chats={chats}
+          handleDeleteChat={handleDeleteChat}
+          handleSelectChat={handleSelectChat}
+          activeChatId={activeChatId}
         />
-        <button
-          onClick={onAddChat}
-         
-          className="chat__add-btn"
-        >
-          + Создать
-        </button>
-      </div>
-
-      <ul className="chat__list">
-        {chats.map((chat) => (
-          <ChatListItem
-            key={chat.chatId}
-            chat={chat}
-            isActive={chat.chatId === activeChatId}
-            handleSelectChat={handleSelectChat}
-            handleDeleteChat={handleDeleteChat}
-          />
-        ))}
-      </ul>
+      )}
     </aside>
   )
 }
