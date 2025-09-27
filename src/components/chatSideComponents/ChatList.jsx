@@ -1,5 +1,5 @@
 import React from "react"
-import ChatListItem from "../ChatListItem"
+import ChatListItem from "./ChatListItem"
 const ChatList = ({ chats, handleDeleteChat, handleSelectChat, activeChatId,onAddChat,onChangeNewTitle,newChatTitle }) => {
   return (
     <>

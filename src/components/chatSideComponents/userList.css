@@ -1,0 +1,99 @@
+/* .user-list__item {
+    margin-top: 8px;
+    padding: 10px 10px ;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #ccc;
+    background: #1a1a1a;
+    box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
+} */
+.user-list {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    width: 100%;
+}
+
+.user-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    background: rgba(61, 60, 60, 0.211);
+    border-radius: 12px;
+    
+    box-shadow: 3px 3px 9px #0000008b, -3px -3px 9px #1d1d1da5;
+    transition: all 0.3s ease;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+/* .user-list__item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+} */
+
+.user-checkbox {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 44px;
+    height: 24px;
+}
+
+.user-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.user-checkbox__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.user-checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(145deg, #090909, #0d0d0d);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        -2px -2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.user-checkbox input:checked + .user-checkbox__checkmark {
+    background: rgba(106, 105, 106, 0.3);
+}
+
+.user-checkbox input:checked + .user-checkbox__checkmark:after {
+    left: calc(100% - 21px);
+    background: linear-gradient(145deg, #8c8c8c, #767777);
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        -2px -2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.user-checkbox input:focus + .user-checkbox__checkmark {
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.05),
+        0 0 0 2px rgba(34, 34, 34, 0.5);
+}

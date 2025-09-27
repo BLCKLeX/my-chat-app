@@ -3,6 +3,7 @@ import React from "react"
 import SideBarNav from "./chatSideComponents/SideBarNav"
 import ChatList from "./chatSideComponents/ChatList"
 import { useSelector, useDispatch } from "react-redux"
+import UserList from "./chatSideComponents/UserList"
 
 // Сайдбар со списком чатов + форма добавления
 export default function ChatSidebar({
@@ -18,6 +19,9 @@ export default function ChatSidebar({
   return (
     <aside className="chat__sidebar">
       <SideBarNav />
+      {activeSection === 'users' &&(
+        <UserList/>
+      )}
       {activeSection === "chats" && (
         <ChatList
           newChatTitle={newChatTitle}
